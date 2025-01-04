@@ -1,5 +1,8 @@
 # Reflexa - App Development Journey
 
+## Live Demo
+You can view the live version of the app here: [Reflexa Live Demo](https://remysedlak.github.io/Reflexa/)
+
 ## Project Overview
 
 During the 2024 Winter break, I spent time researching the current app development market and exploring different technology stacks. After evaluating several options, I decided to start with a simple Django backend paired with React for the frontend.
@@ -55,3 +58,7 @@ This project serves as my hands-on exploration into learning the components, con
 ## Conclusion
 
 This project is an ongoing exploration of full-stack web development. It allows me to grow my skills in both Django and React while building something tangible. I’m excited to see where this journey takes me and look forward to the progress I’ll make!
+
+## Deployment
+
+The site is deployed and accessible through [GitHub Pages](https://remysedlak.github.io/Reflexa/). This version is static, and while you can interact with the frontend, backend functionality is not yet integrated.
