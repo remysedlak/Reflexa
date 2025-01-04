@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { InputSwitch } from 'primereact/inputswitch';
 
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import "primereact/resources/primereact.min.css"; // Make sure this is imported as well
 
 const EntryTable = () => {
-  const [metaKey, setMetaKey] = useState(true);
+  const [metaKey,] = useState(true);
   const [daysData, setDaysData] = useState([]);
   const [selectedDay, setSelectedDay] = useState(null);
 
@@ -17,7 +16,14 @@ const EntryTable = () => {
       try {
         const response = await fetch('/api/days/'); // Ensure this endpoint is correct
         const data = await response.json();
-        setDaysData(data);
+
+        // Sort entries by date (latest first)
+        const sortedData = data.sort((a, b) => new Date(b.entry_date) - new Date(a.entry_date));
+
+        // Limit to the 3-5 most recent entries (you can adjust the number here)
+        const recentEntries = sortedData.slice(0, 3); // Change 5 to 3 for fewer entries
+
+        setDaysData(recentEntries);
       } catch (error) {
         console.error('Error fetching days data:', error);
       }

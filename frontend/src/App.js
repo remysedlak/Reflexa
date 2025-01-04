@@ -1,13 +1,12 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';  // Add Navigate for redirect
 import axios from 'axios';
 import Navbar from './components/Navbar.js'; // Import the Navbar component
 import Calendar from './pages/Calendar';
 import Home from './pages/Home';
 import Entry from './pages/Entry.js';
-import About from './pages/About';                              // Custom styles
-
+import About from './pages/About';        
+import Journal from './pages/Journal.js';
 
 class App extends React.Component {
   state = { details: [] };
@@ -34,7 +33,10 @@ class App extends React.Component {
       <Router>
         <Navbar />  {/* Use Navbar here */}
         <Routes>
-          <Route path="/" element={<Home details={details} />} />
+          {/* Redirect root path to /home */}
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home details={details} />} />
+          <Route path="/journal" element={<Journal details={details} />} />
           <Route path="/entry" element={<Entry details={details} />} />
           <Route path="/calendar" element={<Calendar entries={details} />} />
           <Route path="/about" element={<About />} />

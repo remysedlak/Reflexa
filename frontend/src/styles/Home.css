@@ -1,12 +1,84 @@
-/* Ensure the table fits within its container */
-.entry-table-container {
-  width: 100%;
-  overflow-x: auto; /* Enable horizontal scrolling when needed */
-  padding: 10px;
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+/* Homepage container */
+.homepage {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center;
+  padding: 20px;
+  height: 100%; /* Fill the viewport */
+  background-color: #f9f9f9;
+  
 }
 
-/* Optional: Table responsiveness */
-.entry-table-container .p-datatable {
-  width: 100%; /* Ensure the table takes the full width of its container */
+/* Weekly Insights Section */
+.weekly-insights-section {
+  width: 100%;
+  max-width: 1200px; /* Prevent excessive width */
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Main Content (Left and Right Panels) */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; /* Prevent excessive width */
+  margin: 0 auto; /* Center horizontally */
+  flex-grow: 1;  /* Allow it to grow to fill available space */
+}
+
+.left-panel, .right-panel {
+  flex: 1; /* Take equal space */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Allow vertical scrolling if needed */
+  height:100%
+}
+
+/* Calendar Section */
+.calendar-section {
+  margin-bottom: 20px;
+  height: 100%;
+}
+
+/* Typography Styling for Consistency */
+.typography {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  height: 100%;
+}
+
+/* Media Queries for Small Screens */
+@media (max-width: 768px) {
+  .homepage {
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+
+  .main-content {
+    flex-direction: column; /* Stack left and right panels vertically */
+  }
+
+  .left-panel, .right-panel {
+    width: 100%; /* Panels should take full width */
+    margin-bottom: 20px; /* Add space between stacked panels */
+  }
+}
+
+.journalpage {
+  padding: 20px;
+}
+
+.monthly-entries-container {
+  margin-top: 20px;
+}
+
+.MuiTableCell-root {
+  padding: 16px;
 }

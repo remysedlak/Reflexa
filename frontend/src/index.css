@@ -1,76 +1,12 @@
-/* Global Styles */
-body {
+/* Add this at the top of your Home.css or a global styles file */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Include padding and borders in width and height */
+}
+
+body, html {
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9; /* Ensure a single background color for the entire page */
-  font-family: 'Arial', sans-serif;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  min-height: 100vh; /* Ensure the body fills the entire viewport */
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column; /* Page content flows vertically */
-}
-
-/* Main homepage container */
-.homepage {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  width: 100%; /* Full width of the screen */
-  height: 100vh; /* Full height of the screen */
-  padding: 20px;
-  box-sizing: border-box;
-  overflow: hidden; /* Hide overflow for the entire page */
-  position: relative;
-  flex-grow: 1;
-  background-color: #f9f9f9; /* Apply the same background color */
-  border-radius: 10px; /* Uniform border-radius for seamless transition between sections */
-}
-
-/* Left and Right Panels */
-.left-panel,
-.right-panel {
-  flex: 1;
-  padding: 20px;
-  background-color: #ffffff; /* White background for content panels */
-  border-radius: 10px; /* Same radius for seamless borders */
-  box-sizing: border-box;
-  height: 100%; /* Ensure panels fill the height */
-  overflow-y: auto; /* Enable scroll within the panels */
-  min-height: 0; /* Prevent shrinking */
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
-}
-
-/* Calendar and Insights sections */
-.calendar-section,
-.insights-section {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for slight separation */
-}
-
-/* Optional: Soft shadow for panels */
-.left-panel, .right-panel {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for both panels */
-}
-
-/* Ensure a fluid look without borders */
-.left-panel, .right-panel, .calendar-section, .insights-section {
-  border-radius: 10px; /* Consistent round edges */
-}
-
-/* Media Queries for Smaller Screens */
-@media (max-width: 768px) {
-  .homepage {
-    flex-direction: column; /* Stack panels vertically on smaller screens */
-    height: auto; /* Adjust height to auto */
-    padding: 10px; /* Adjust padding for smaller screens */
-  }
-
-  .left-panel, .right-panel {
-    width: 100%; /* Ensure panels fill the width on small screens */
-  }
+  height: 100%; /* Ensure full height for the body */
 }

@@ -1,0 +1,21 @@
+/* Prevent overflow from the body */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden; /* Prevent horizontal scrolling */
+  height: 100%;
+}
+
+/* Global Body Styles */
+body {
+  background-color: #f9f9f9; /* Ensure a single background color for the entire page */
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: hidden; /* Prevent horizontal scrolling */
+  height: 100%;/* Ensure the body fills the entire viewport */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Page content flows vertically */
+}

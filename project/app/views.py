@@ -18,6 +18,17 @@ class DaysItemView(generics.ListCreateAPIView):
             queryset = queryset.filter(date=date)
         return queryset
 
+class DayDeleteView(generics.DestroyAPIView):
+    queryset = Days.objects.all()
+    serializer_class = DaysSerializer
+    lookup_field = 'id'  # You can use the primary key or another field to identify the object
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Handle DELETE request to remove a journal entry.
+        """
+        return super().delete(request, *args, **kwargs)
+        
 
 def mood_colors(request):
     # Create a list of mood colors in the format that frontend expects

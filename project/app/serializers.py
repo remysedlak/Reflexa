@@ -6,7 +6,7 @@ from . models import *
 class DaysSerializer(serializers.ModelSerializer):
     class Meta:
         model = Days
-        fields =  fields =  ['entry_date', 'entry_title', 'entry_content', 'mood_color', 'proper_nutrition', 'proper_hydration',
+        fields =  fields =  ['id','entry_date', 'entry_title', 'entry_content', 'mood_color', 'proper_nutrition', 'proper_hydration',
             'hydration_amount', 'proper_exercise', 'exercise_duration', 'exercise_description',
             'hours_of_sleep']
 
