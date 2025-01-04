@@ -14,7 +14,7 @@ This project serves as my hands-on exploration into learning the components, con
 - **Backend**: Django (Python)
 - **Frontend**: React (JavaScript)
 - **Version Control**: Git & GitHub
-- **Database**: PostgreSQL (planned integration)
+- **Database**: PostgreSQL (server on localhost)
 
 ## Progress Timeline
 
