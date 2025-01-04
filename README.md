@@ -1,7 +1,7 @@
 # Reflexa - App Development Journey
 
 ## Live Demo
-You can view the live version of the app here: [Reflexa Live Demo](https://remysedlak.github.io/Reflexa/)
+You can view an offline static version of the app here: [Reflexa Live Demo](https://remysedlak.github.io/Reflexa/)
 
 ## Project Overview
 
