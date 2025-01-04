@@ -6,7 +6,7 @@ const Navbar = () => (
   <nav className="navbar">
     <div className="logo">
       <Link to="/" className="logo-text">
-        Therapy App
+        Reflexa
       </Link>
     </div>
     <ul className="navbar-links">

@@ -22,7 +22,7 @@
 .logo-text {
   text-decoration: none;
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Same font as the navbar links */
   letter-spacing: 2px;
   text-transform: uppercase;
   transition: transform 0.3s ease;
@@ -44,9 +44,10 @@
   text-decoration: none;
   color: white;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600; /* Use a slightly higher font weight for consistency with the logo */
   margin: 0 15px;
   padding: 5px 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Same font as logo */
   transition: color 0.3s ease, transform 0.2s ease;
 }
 

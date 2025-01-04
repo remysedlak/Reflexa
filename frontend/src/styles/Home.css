@@ -1,21 +1,12 @@
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+/* Ensure the table fits within its container */
+.entry-table-container {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling when needed */
+  padding: 10px;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
-.grid-item {
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.grid-item div {
-  margin-bottom: 10px;
-}
-
-.grid-item strong {
-  color: #333;
+/* Optional: Table responsiveness */
+.entry-table-container .p-datatable {
+  width: 100%; /* Ensure the table takes the full width of its container */
 }

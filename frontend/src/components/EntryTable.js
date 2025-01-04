@@ -4,7 +4,7 @@ import { Column } from 'primereact/column';
 import { InputSwitch } from 'primereact/inputswitch';
 
 import "primereact/resources/themes/lara-light-cyan/theme.css";
-
+import "primereact/resources/primereact.min.css"; // Make sure this is imported as well
 
 const EntryTable = () => {
   const [metaKey, setMetaKey] = useState(true);
@@ -27,8 +27,7 @@ const EntryTable = () => {
   }, []);
 
   return (
-    <div>
-      
+    <div className="entry-table-container">
       {/* DataTable for Days Data */}
       <DataTable
         value={daysData}
@@ -37,12 +36,14 @@ const EntryTable = () => {
         onSelectionChange={(e) => setSelectedDay(e.value)}
         dataKey="entry_date"
         metaKeySelection={metaKey}
-        tableStyle={{ minWidth: '60rem' }}
+        scrollable={true} // Enable scroll when data overflows
+        style={{ width: '100%' }} // Make the DataTable responsive
+        scrollDirection="horizontal" // Enable horizontal scrolling if necessary
+        tableStyle={{ width: '100%', minWidth: '100%' }}
       >
-        <Column field="entry_date" header="Date"></Column>
-        <Column field="entry_title" header="Title"></Column>
-        <Column field="mood_color" header="Mood Color"></Column>
-        <Column field="hours_of_sleep" header="Sleep Hours"></Column>
+        <Column field="entry_date" header="Date" style={{ minWidth: '150px' }} />
+        <Column field="entry_title" header="Title" style={{ minWidth: '200px' }} />
+        <Column field="hours_of_sleep" header="Sleep Hours" style={{ minWidth: '150px' }} />
       </DataTable>
     </div>
   );

@@ -12,14 +12,16 @@ const CalendarTile = ({ entries }) => {
 
   // Function to render mood color for each day
   const tileContent = ({ date }) => {
-    const entry = entries.find((entry) => entry.date === date.toISOString().split('T')[0]);
+    const formattedDate = date.toISOString().split('T')[0]; // Ensure date is formatted as YYYY-MM-DD
+    const entry = entries.find((entry) => entry.entry_date === formattedDate); // Match entry by date
     return entry ? (
       <div
         style={{
-          backgroundColor: entry.mood_color,
-          height: '100%',
-          width: '100%',
+          backgroundColor: entry.mood_color, // Use the mood color from the entry
+          height: '20px',  // Constrain the circle size
+          width: '20px',   // Constrain the circle size
           borderRadius: '50%',
+          margin: 'auto',  // Center the circle in the tile
         }}
       />
     ) : null;

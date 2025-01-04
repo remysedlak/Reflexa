@@ -1,0 +1,19 @@
+/* src/styles/CalendarPage.css */
+.calendar-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;  /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+  }
+  
+  /* Optional: Container for the Calendar, ensure proper sizing and alignment */
+  .calendar-container {
+    display: flex;
+    justify-content: center; /* Center the calendar horizontally */
+    width: 100%;
+    max-width: 800px; /* Optional: Set a maximum width for the calendar */
+    height: 80vh; /* Use a percentage of viewport height */
+  }
+  
