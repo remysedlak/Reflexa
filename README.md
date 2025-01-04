@@ -43,7 +43,7 @@ This project serves as my hands-on exploration into learning the components, con
 
 ![1/4/2025 Screenshot](https://github.com/user-attachments/assets/c698dea2-b1f6-4e63-b830-fa1596d2f263)
 
-![image](https://github.com/user-attachments/assets/14edd33c-cb44-4beb-87bc-d8a03891ab62)
+![image](https://github.com/user-attachments/assets/78d40309-1d9d-4138-a155-6c4f9ac00149)
 
 
 ---
