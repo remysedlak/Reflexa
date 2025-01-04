@@ -1,0 +1,73 @@
+/* General styling for navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+  color: white;
+  padding: 15px 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
+  border-bottom: 2px solid #fff; /* Border below the navbar */
+}
+
+/* Logo section styling */
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.logo-text {
+  text-decoration: none;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+
+.logo-text:hover {
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+
+/* Navbar link styling */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 15px;
+  padding: 5px 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: #FF6F61; /* Soft red color on hover */
+  transform: translateY(-3px); /* Slight lifting effect */
+}
+
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-link {
+    margin: 10px 0;
+  }
+}
