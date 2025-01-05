@@ -1,0 +1,31 @@
+/* src/styles/CalendarPage.css */
+
+.calendar-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Fill the full viewport height */
+  background-color: #f9f9f9; /* Optional: Background color */
+  padding: 20px; /* Optional: Padding for spacing */
+  box-sizing: border-box;
+}
+
+.calendar-container {
+  width: 90vw; /* Occupies 90% of the viewport width */
+  max-width: 800px; /* Optional: Prevent excessive width */
+  height: 80vh; /* Occupies 80% of the viewport height */
+  max-height: 800px; /* Optional: Limit height on larger screens */
+  display: flex;
+  justify-content: center; /* Center calendar horizontally */
+  align-items: center; /* Center calendar vertically */
+  background-color: #ffffff; /* Optional: Background for the container */
+  border-radius: 10px; /* Optional: Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  padding: 10px; /* Optional: Padding for the calendar content */
+}
+
+.calendar-container .react-calendar {
+  width: 100%; /* Make the calendar fill the container */
+  height: 100%; /* Ensure it adjusts dynamically */
+}

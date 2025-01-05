@@ -1,0 +1,44 @@
+/* Full-screen container for the calendar */
+.calendar-tile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Title styling */
+  .calendar-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+  }
+  
+  /* Wrapper for the calendar */
+  .calendar-wrapper {
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .calendar-wrapper {
+      max-width: 90%;
+      padding: 10px;
+    }
+  
+    .calendar-title {
+      font-size: 2rem;
+    }
+  }
+  

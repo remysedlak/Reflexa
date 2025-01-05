@@ -1,5 +1,5 @@
 {
-  "homepage": "/home",
+  "homepage": "https://remysedlak.github.io/Reflexa/home",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -9,11 +9,12 @@
     "@emotion/styled": "^11.14.0",
     "@fontsource/roboto": "^5.1.1",
     "@mui/icons-material": "^6.3.1",
-    "@mui/material": "^6.3.0",
+    "@mui/material": "^6.3.1",
     "@mui/x-date-pickers": "^7.23.3",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "cra-template": "1.2.0",
+    "date-fns": "^2.21.3",
     "dayjs": "^1.11.13",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",
@@ -55,6 +56,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "gh-pages": "^6.3.0"
   }
 }

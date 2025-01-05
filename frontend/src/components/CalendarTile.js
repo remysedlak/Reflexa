@@ -22,6 +22,7 @@ const CalendarTile = ({ entries }) => {
           width: '20px',   // Constrain the circle size
           borderRadius: '50%',
           margin: 'auto',  // Center the circle in the tile
+          
         }}
       />
     ) : null;
@@ -33,6 +34,7 @@ const CalendarTile = ({ entries }) => {
         onChange={onDateChange}
         value={selectedDate}
         tileContent={tileContent} // Attach tileContent function
+        
       />
     </div>
   );

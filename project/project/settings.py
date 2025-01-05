@@ -101,10 +101,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'reflexa_db',
         'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'PASSWORD': 'Sedlak18',
+        'HOST': 'reflexa.cds0kmqcmeh2.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
