@@ -34,7 +34,7 @@ const Home = ({ details }) => (
         >
           Recent Journal Entries
         </Typography>
-        <EntryTable details={details} />
+        <EntryTable entries={details} />
       </div>
 
       {/* Right Panel: Calendar */}

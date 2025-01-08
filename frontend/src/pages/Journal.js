@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Typography } from '@mui/material';
 import TrashButton from '../components/buttons/TrashButton';
 import '../styles/Home.css'; // Import a CSS file for styling
+import EditButton from '../components/buttons/EditButton';
 
 const Journal = ({ details }) => {
   const [groupedEntries, setGroupedEntries] = useState({});
@@ -88,6 +89,7 @@ const Journal = ({ details }) => {
                         aria-label="delete"
                       >
                         <TrashButton /> {/* Use your TrashButton component here */}
+                        <EditButton/>
                       </IconButton>
                     </TableCell>
                   </TableRow>

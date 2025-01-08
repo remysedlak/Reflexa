@@ -1,35 +1,47 @@
-/* General styling for navbar */
+/* General styling for navbar */ 
 .navbar {
   position: sticky;
   top: 0;
-  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Smooth gradient background */
   color: white;
-  padding: 15px 20px;
+  padding: 15px 30px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Drop shadow */
-  border-bottom: 2px solid #fff; /* Border below the navbar */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft drop shadow for modern look */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect on navbar to give subtle visual feedback */
+.navbar:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb); /* Reverse gradient on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow */
 }
 
 /* Logo section styling */
 .logo {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .logo-text {
   text-decoration: none;
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Same font as the navbar links */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
+/* Hover effect on logo */
 .logo-text:hover {
   transform: scale(1.05); /* Subtle zoom effect */
+  color: #ff6f61; /* Highlight color on hover */
 }
 
 /* Navbar link styling */
@@ -44,23 +56,67 @@
   text-decoration: none;
   color: white;
   font-size: 18px;
-  font-weight: 600; /* Use a slightly higher font weight for consistency with the logo */
-  margin: 0 15px;
-  padding: 5px 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Same font as logo */
-  transition: color 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+  margin: 0 20px;
+  padding: 8px 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: color 0.3s ease, transform 0.2s ease, background 0.3s ease;
+  border-radius: 20px; /* Rounded link edges */
+  display: inline-block;
 }
 
 .navbar-link:hover {
-  color: #FF6F61; /* Soft red color on hover */
-  transform: translateY(-3px); /* Slight lifting effect */
+  color: #ff6f61; /* Hover color */
+  transform: translateY(-4px); /* Lift effect */
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background highlight */
+}
+
+/* Active link styling */
+.navbar-link.active {
+  color: #ff6f61;
+  background-color: rgba(255, 255, 255, 0.2); /* Slight active link highlight */
+}
+
+/* Dropdown menu */
+.navbar-link-dropdown {
+  position: relative;
+}
+
+.navbar-link-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #ff6f61;
+  color: white;
 }
 
 /* Responsive design for small screens */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 20px;
   }
 
   .navbar-links {
@@ -70,5 +126,10 @@
 
   .navbar-link {
     margin: 10px 0;
+  }
+
+  /* Add a mobile-friendly logo size */
+  .logo {
+    font-size: 24px;
   }
 }

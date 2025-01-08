@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Entry from './pages/Entry.js';
 import About from './pages/About';        
 import Journal from './pages/Journal.js';
+import Insights from './pages/Insights.js';
+
 
 class App extends React.Component {
   state = { details: [] };
@@ -39,6 +41,7 @@ class App extends React.Component {
           <Route path="/journal" element={<Journal details={details} />} />
           <Route path="/entry" element={<Entry details={details} />} />
           <Route path="/calendar" element={<Calendar entries={details} />} />
+          <Route path="/insights" element={<Insights entries={details} />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Router>

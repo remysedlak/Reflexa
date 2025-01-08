@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 function TrashButton({ entryId, onDelete }) {
     const handleDelete = () => {
