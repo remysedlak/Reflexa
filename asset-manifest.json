@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Reflexa/static/css/main.a49f4cc4.css",
-    "main.js": "/Reflexa/static/js/main.9a9d2a29.js",
-    "static/js/488.e75445ad.chunk.js": "/Reflexa/static/js/488.e75445ad.chunk.js",
-    "static/media/InterVariable-Italic.woff2": "/Reflexa/static/media/InterVariable-Italic.e295f70fe3e2df296c7b.woff2",
-    "static/media/InterVariable.woff2": "/Reflexa/static/media/InterVariable.a0e477f2f1f9d2376fde.woff2",
-    "index.html": "/Reflexa/index.html",
-    "main.a49f4cc4.css.map": "/Reflexa/static/css/main.a49f4cc4.css.map",
-    "main.9a9d2a29.js.map": "/Reflexa/static/js/main.9a9d2a29.js.map",
-    "488.e75445ad.chunk.js.map": "/Reflexa/static/js/488.e75445ad.chunk.js.map"
+    "main.css": "/Reflexa/home/static/css/main.a28f2c88.css",
+    "main.js": "/Reflexa/home/static/js/main.6dd49c35.js",
+    "static/js/488.e75445ad.chunk.js": "/Reflexa/home/static/js/488.e75445ad.chunk.js",
+    "static/media/InterVariable-Italic.woff2": "/Reflexa/home/static/media/InterVariable-Italic.e295f70fe3e2df296c7b.woff2",
+    "static/media/InterVariable.woff2": "/Reflexa/home/static/media/InterVariable.a0e477f2f1f9d2376fde.woff2",
+    "index.html": "/Reflexa/home/index.html",
+    "main.a28f2c88.css.map": "/Reflexa/home/static/css/main.a28f2c88.css.map",
+    "main.6dd49c35.js.map": "/Reflexa/home/static/js/main.6dd49c35.js.map",
+    "488.e75445ad.chunk.js.map": "/Reflexa/home/static/js/488.e75445ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a49f4cc4.css",
-    "static/js/main.9a9d2a29.js"
+    "static/css/main.a28f2c88.css",
+    "static/js/main.6dd49c35.js"
   ]
 }
