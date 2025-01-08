@@ -49,6 +49,12 @@ This project serves as my hands-on exploration into learning the components, con
 
 ---
 
+### 1/8/2025
+
+![image](https://github.com/user-attachments/assets/700297a0-dc98-4666-a57e-dcafa5157198)
+
+---
+
 ## What I’m Learning
 - **React**: Components, state management, and building interactive UIs.
 - **Django**: Building API endpoints, controllers, and routing.
