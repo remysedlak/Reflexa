@@ -51,6 +51,8 @@ This project serves as my hands-on exploration into learning the components, con
 
 ### 1/8/2025
 
+Preparing proper HTTP operations to allow proper CRUD operations.
+Succesfully implemented an EC2 instance of the Django Rest API!
 ![image](https://github.com/user-attachments/assets/700297a0-dc98-4666-a57e-dcafa5157198)
 
 ---
