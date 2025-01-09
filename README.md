@@ -64,6 +64,7 @@ This project serves as my hands-on exploration into learning the components, con
 
 ## Future Goals
 - Continue refining the app's functionality.
+- Restructure layout to work woth mobile browsers.
 - Add more features like user authentication, database integration, and enhanced UI elements.
 - Deploy the application for real-world use.
 
