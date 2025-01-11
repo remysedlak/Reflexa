@@ -14,7 +14,7 @@ const EntryTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/days'); // Ensure this endpoint is correct
+        const response = await fetch('http://3.147.75.57:8000/api/days/'); // Ensure this endpoint is correct
         const data = await response.json();
 
         // Sort entries by date (latest first)

@@ -16,7 +16,6 @@ const Home = ({ details }) => (
           fontSize: { xs: '1.2rem', sm: '1.5rem' },
         }}
       >
-        Your Weekly Insights
       </Typography>
       <WeeklyInsights entries={details} />
     </div>
