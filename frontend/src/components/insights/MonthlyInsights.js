@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
-import axios from 'axios'; // Ensure this path is correct
+import axios from 'axios';
 import { Typography, Box } from '@mui/material';
 
 const MonthlyInsights = () => {
   const [insights, setInsights] = useState(null);
+  const [moodColors, setMoodColors] = useState({});
 
   useEffect(() => {
+    const fetchMoodColors = async () => {
+      try {
+        const response = await axios.get('http://3.147.75.57:8000/api/mood-colors/');
+        const moodColorsData = response.data.mood_colors.reduce((acc, mood) => {
+          acc[mood.value] = mood.label;
+          return acc;
+        }, {});
+        setMoodColors(moodColorsData);
+      } catch (error) {
+        console.error('Error fetching mood colors:', error);
+      }
+    };
+
     const fetchData = async () => {
       try {
         const response = await axios.get('http://3.147.75.57:8000/api/past-thirty-days/');
@@ -16,13 +30,14 @@ const MonthlyInsights = () => {
       }
     };
 
+    fetchMoodColors();
     fetchData();
   }, []);
 
   const pieData = insights
     ? Object.entries(insights.mood_color_percentages).map(([color, percentage]) => ({
         id: color,
-        label: color,
+        label: moodColors[color] || color,
         value: percentage,
       }))
     : [];

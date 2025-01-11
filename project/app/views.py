@@ -1,6 +1,5 @@
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
-from analytics.sleep_analysis import analyze_sleep_data  # Adjust the import path
 
 from .models import Days, MoodColors
 from .serializers import DaysSerializer, MoodColorsSerializer
@@ -10,18 +9,12 @@ from analytics.monthly_insights import MonthlyInsights
 from django.utils import timezone
 from datetime import timedelta
 
-from rest_framework import generics, viewsets
-from rest_framework.response import Response
 from analytics.sleep_analysis import analyze_sleep_data  # Adjust the import path
 
-from .models import Days, MoodColors
-from .serializers import DaysSerializer, MoodColorsSerializer
-from django.http import JsonResponse
-from rest_framework.views import APIView
-from analytics.monthly_insights import MonthlyInsights
-from django.utils import timezone
-from datetime import timedelta
 from collections import Counter  # Import Counter
+
+
+
 
 class PastThirtyDaysInsights(APIView):
     def get(self, request, format=None):
@@ -47,7 +40,7 @@ class PastThirtyDaysInsights(APIView):
         # Calculate mood color percentages
         mood_colors = [activity.mood_color for activity in activities if activity.mood_color]
         mood_color_counts = Counter(mood_colors)
-        mood_color_percentages = {color: (count / total_days) * 100 for color, count in mood_color_counts.items()}
+        mood_color_percentages = {color: round((count / total_days) * 100, 2) for color, count in mood_color_counts.items()}
 
         # Calculate average hydration
         total_hydration = sum(activity.hydration_amount for activity in activities if activity.hydration_amount is not None)
@@ -64,6 +57,7 @@ class PastThirtyDaysInsights(APIView):
             "average_hydration": average_hydration,
             "average_exercise": average_exercise
         })
+        
 class MonthlyInsightsView(APIView):
     def get(self, request, month, year):
         api_url = "http://3.147.75.57:8000/api"

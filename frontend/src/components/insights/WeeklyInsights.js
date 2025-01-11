@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import the configured axios instance
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 const WeeklyInsights = () => {
   const [averageSleep, setAverageSleep] = useState(null);
@@ -28,16 +28,11 @@ const WeeklyInsights = () => {
   }, []);
 
   return (
-    <div className="weekly-insights">
-      <Typography
-        sx={{
-          marginBottom: '20px',
-          fontWeight: 'bold',
-          fontSize: { xs: '1.2rem', sm: '1.5rem' },
-        }}
-      >
-        Your Weekly Insights
-      </Typography>
+    <Box sx={{ p: 3 }}>
+    <div className="weekly-insts"igh>
+      <Typography variant="h4" gutterBottom>
+              Last 7 Days Insights
+            </Typography>
       {averageSleep !== null && <p>Average Sleep: {averageSleep.toFixed(2)} hours</p>}
       {mostCommonMood && (
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -57,6 +52,7 @@ const WeeklyInsights = () => {
       {averageExercise !== null && <p>Average Exercise: {averageExercise.toFixed(2)} minutes</p>}
       {averageHydration !== null && <p>Average Hydration: {averageHydration.toFixed(2)} liters</p>}
     </div>
+    </Box>
   );
 };
 

@@ -1,0 +1,85 @@
+/* General styling for navbar */ 
+.navbar {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Smooth gradient background */
+  color: white;
+  padding: 15px 30px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft drop shadow for modern look */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+  transition: all 0.3s ease-in-out;
+  width: 100%; /* Ensure navbar takes full width */
+  overflow: hidden; /* Prevent overflow */
+}
+
+/* Hover effect on navbar to give subtle visual feedback */
+.navbar:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb); /* Reverse gradient on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+}
+
+.logo-text {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Increase gap between links */
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  .navbar-link {
+    padding: 1rem;
+    border-top: 1px solid #444;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+}
+
+/* Ensure body does not overflow horizontally */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}

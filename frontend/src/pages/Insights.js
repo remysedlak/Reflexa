@@ -1,37 +1,17 @@
-import { React} from 'react'
-import { Typography } from '@mui/material';
+import React from 'react';
 import WeeklyInsights from '../components/insights/WeeklyInsights';
 import MonthlyInsights from '../components/insights/MonthlyInsights';
+import { Box } from '@mui/material';
 
 const Insights = ({ details }) => (
-
-<div>
-    <div className="weekly-insights-section">
-      <Typography
-        sx={{
-          marginBottom: '20px',
-          fontWeight: 'bold',
-          fontSize: { xs: '1.2rem', sm: '1.5rem' },
-        }}
-      >
-      </Typography>
+  <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 3 }}>
+    <Box sx={{ flex: 1, mr: 2 }}>
       <WeeklyInsights entries={details} />
-    </div>
+    </Box>
+    <Box sx={{ flex: 1, ml: 2 }}>
+      <MonthlyInsights />
+    </Box>
+  </Box>
+);
 
-
-
-    <div class = "monthlyinsights">
-    <Typography
-        sx={{
-          marginBottom: '20px',
-          fontWeight: 'bold',
-          fontSize: { xs: '1.2rem', sm: '1.5rem' },
-        }}
-      >
-      </Typography>
-      <MonthlyInsights entries={details} />
-    </div>
-</div>
-
-)
 export default Insights;
