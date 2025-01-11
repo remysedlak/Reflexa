@@ -5,7 +5,17 @@ from .models import Days, MoodColors
 from .serializers import DaysSerializer, MoodColorsSerializer
 from django.http import JsonResponse
 
+class AggregatedDataView(request):
+    def get(self, request, *args, **kwargs):
+        # Get data from the Days model
+        days_queryset = Days.objects.all()
 
+        # Perform the analysis
+        analysis = analyze_sleep_data(days_queryset)
+
+        # Return the response
+        return Response(analysis)
+        
 class DaysItemView(generics.ListCreateAPIView):
     queryset = Days.objects.all()
     serializer_class = DaysSerializer
