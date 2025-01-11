@@ -6,6 +6,15 @@ from .models import Days, MoodColors
 from .serializers import DaysSerializer, MoodColorsSerializer
 from django.http import JsonResponse
 from rest_framework.views import APIView
+from analytics.monthly_insights import MonthlyInsights
+
+class MonthlyInsightsView(APIView):
+    def get(self, request, month, year):
+        api_url = "http://3.147.75.57:8000/api"
+        insights = MonthlyInsights(api_url)
+        data = insights.fetch_data(month=int(month), year=int(year))
+        result = insights.generate_insights(data)
+        return Response(result)
 
 class AggregatedDataView(APIView):
     def get(self, request, *args, **kwargs):

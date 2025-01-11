@@ -1,108 +1,62 @@
 import React, { useEffect, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Typography } from '@mui/material';
-import TrashButton from '../components/buttons/TrashButton';
-import '../styles/Home.css'; // Import a CSS file for styling
-import EditButton from '../components/buttons/EditButton';
+import { DataGrid } from '@mui/x-data-grid';
+import axios from 'axios'; // Import the configured axios instance
+import { Typography } from '@mui/material';
 
-const Journal = ({ details }) => {
-  const [groupedEntries, setGroupedEntries] = useState({});
+const Journal = () => {
+  const [daysData, setDaysData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  // Fetch data from the Django REST API
   useEffect(() => {
-    if (details) {
-      // Group entries by month and year
-      const grouped = details.reduce((acc, entry) => {
-        const date = new Date(entry.entry_date);
-        const month = date.toLocaleString('default', { month: 'long' }); // e.g., "January"
-        const year = date.getFullYear(); // e.g., 2025
-        const key = `${month} ${year}`; // e.g., "January 2025"
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://3.147.75.57:8000/api/days/');
+        const data = response.data;
 
-        if (!acc[key]) acc[key] = [];
-        acc[key].push(entry);
+        // Sort entries by date (latest first)
+        const sortedData = data.sort((a, b) => new Date(b.entry_date) - new Date(a.entry_date));
 
-        return acc;
-      }, {});
+        setDaysData(sortedData);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
 
-      setGroupedEntries(grouped);
-    }
-  }, [details]);
+    fetchData();
+  }, []);
 
-  // Function to handle delete (you can customize this as per your API call)
-  const handleDelete = (entryId) => {
-    fetch(`/api/journal/${entryId}/`, {
-      method: 'DELETE',
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.message) {
-          console.log(data.message);  // Success
-          setGroupedEntries(prevGroupedEntries => {
-            // Remove the deleted entry from the state
-            const newGroupedEntries = { ...prevGroupedEntries };
-            for (const month in newGroupedEntries) {
-              newGroupedEntries[month] = newGroupedEntries[month].filter(entry => entry.id !== entryId);
-            }
-            return newGroupedEntries;
-          });
-        } else {
-          console.error(data.error);  // Error handling
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  };
+  const columns = [
+    { field: 'entry_date', headerName: 'Date', width: 150 },
+    { field: 'entry_title', headerName: 'Title', width: 200 },
+    { field: 'hours_of_sleep', headerName: 'Sleep Hours', width: 150 },
+  ];
 
   return (
-    <div className="journalpage">
+    <div style={{ height: 400, width: '100%' }}>
       <Typography
-        sx={{
-          marginBottom: '20px',
-          fontWeight: 'bold',
-          fontSize: { xs: '1.5rem', sm: '2rem' },
-        }}
-      >
-        Journal Entries
-      </Typography>
-
-      <TableContainer>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Entry Title</TableCell>
-              <TableCell>Date</TableCell>
-              <TableCell>Content</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {Object.keys(groupedEntries).length > 0 ? (
-              Object.keys(groupedEntries).map((month) => (
-                groupedEntries[month].map((entry) => (
-                  <TableRow key={entry.id}>
-                    <TableCell>{entry.entry_title}</TableCell>
-                    <TableCell>{new Date(entry.entry_date).toLocaleDateString('en-US', { timeZone: 'UTC' })}</TableCell>
-                    <TableCell>{entry.content}</TableCell>
-                    <TableCell>
-                      <IconButton
-                        onClick={() => handleDelete(entry.id)}
-                        color="secondary"
-                        aria-label="delete"
-                      >
-                        <TrashButton /> {/* Use your TrashButton component here */}
-                        <EditButton/>
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
-                ))
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={4}>Loading entries...</TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+              sx={{
+                marginBottom: '20px',
+                marginTop: '20px',
+                fontWeight: 'bold',
+                fontSize: { xs: '1.2rem', sm: '1.5rem' },
+              }}
+            >
+              Your Journal
+            </Typography>
+      {loading ? (
+        <Typography>Loading entries...</Typography>
+      ) : (
+        <DataGrid
+          rows={daysData}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          getRowId={(row) => row.id} // Ensure each row has a unique ID
+        />
+      )}
     </div>
   );
 };
