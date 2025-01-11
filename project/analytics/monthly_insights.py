@@ -1,7 +1,7 @@
-import requests
+
 from collections import Counter
 from datetime import datetime
-
+import json
 class MonthlyInsights:
     def __init__(self, api_url):
         self.api_url = api_url
