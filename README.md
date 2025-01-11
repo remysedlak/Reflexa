@@ -66,8 +66,10 @@ This project serves as my hands-on exploration into learning the components, con
 ![image](https://github.com/user-attachments/assets/668c042d-8a02-4475-af6d-726fea10fe75)
 ![image](https://github.com/user-attachments/assets/1d782b34-cafa-4842-81f2-41e4c3a693a1)
 
+- This is starting to come together a little bit more, a lot of clean up is needed, but its starting to feel more like an app
+- I plan to add/learn more features until the app actually is useful, learning how to use tools and connect my ends
+- Then, I will include more fields in my data, and try to keep a consistent UI/UX style
 
-- 
 ## What I’m Learning
 - **React**: Components, state management, and building interactive UIs.
 - **Django**: Building API endpoints, controllers, and routing.
