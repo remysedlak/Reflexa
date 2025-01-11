@@ -64,7 +64,7 @@ This project serves as my hands-on exploration into learning the components, con
 - Focusing on learning proper repsonsive UI practices, so that the app looks proper on mobile resolutions.
 
 ![image](https://github.com/user-attachments/assets/668c042d-8a02-4475-af6d-726fea10fe75)
-
+![image](https://github.com/user-attachments/assets/1d782b34-cafa-4842-81f2-41e4c3a693a1)
 
 
 - 
