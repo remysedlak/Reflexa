@@ -5,7 +5,7 @@ from .models import Days, MoodColors
 from .serializers import DaysSerializer, MoodColorsSerializer
 from django.http import JsonResponse
 
-cclass AggregatedDataView(APIView):
+class AggregatedDataView(APIView):
     def get(self, request, *args, **kwargs):
         # Get data from the Days model
         days_queryset = Days.objects.all()
