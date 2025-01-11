@@ -3,6 +3,17 @@ from django.contrib.auth.models import User
 
 from . models import *
 
+class AggregatedDataView(APIView):
+    def get(self, request, *args, **kwargs):
+        # Get data from the Days model
+        days_queryset = Days.objects.all()
+
+        # Perform the analysis
+        analysis = analyze_sleep_data(days_queryset)
+
+        # Return the response
+        return Response(analysis)
+
 class DaysSerializer(serializers.ModelSerializer):
     class Meta:
         model = Days

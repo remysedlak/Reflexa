@@ -6,7 +6,6 @@ from .serializers import DaysSerializer, MoodColorsSerializer
 from django.http import JsonResponse
 
 
-
 class DaysItemView(generics.ListCreateAPIView):
     queryset = Days.objects.all()
     serializer_class = DaysSerializer

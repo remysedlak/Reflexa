@@ -16,17 +16,7 @@ const CalendarPage = ({ entries }) => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Box
-        sx={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#f9f9f9',
-          padding: 2,
-        }}
-      >
+      
         <Typography
           variant="h4"
           component="h1"
@@ -35,20 +25,7 @@ const CalendarPage = ({ entries }) => {
         >
           Your Personal Calendar
         </Typography>
-        <Paper
-          elevation={3}
-          sx={{
-            maxWidth: '100%',
-            width: '80%',   // Increase the width of the calendar
-            padding: 2,
-            borderRadius: 2,
-            backgroundColor: '#ffffff',
-            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-            height: 'auto',  // Let it take the height as needed
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
+        
           <StaticDatePicker
             displayStaticWrapperAs="desktop"
             value={selectedDate}
@@ -75,8 +52,8 @@ const CalendarPage = ({ entries }) => {
               height: '100%', // Ensures it takes up the entire height of the container
             }}
           />
-        </Paper>
-      </Box>
+        
+      
     </LocalizationProvider>
   );
 };

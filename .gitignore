@@ -1,0 +1,5 @@
+build
+/frontend/node_modules
+.vscode
+venv
+__pycache__

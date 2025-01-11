@@ -18,7 +18,7 @@ class App extends React.Component {
     axios.defaults.withCredentials = true;
 
     axios
-      .get('http://127.0.0.1:8000/api/days', { withCredentials: true })
+      .get('http://3.147.75.57:8000/api/days/', { withCredentials: true })
       .then((res) => {
         const data = res.data;
         this.setState({ details: data });
