@@ -1,7 +1,7 @@
-
 from collections import Counter
 from datetime import datetime
-import json
+import requests
+
 class MonthlyInsights:
     def __init__(self, api_url):
         self.api_url = api_url
@@ -55,11 +55,10 @@ class MonthlyInsights:
             'average_exercise': average_exercise
         }
 
+# Example usage
 if __name__ == "__main__":
     api_url = "http://3.147.75.57:8000/api"
-    month = datetime.now().month
-    year = datetime.now().year
-
-    insights_generator = MonthlyInsights(api_url)
-    insights = insights_generator.get_monthly_insights(month, year)
-    print(insights)
+    insights = MonthlyInsights(api_url)
+    data = insights.fetch_data(month=12, year=2024)
+    result = insights.generate_insights(data)
+    print(result)
