@@ -57,6 +57,17 @@ This project serves as my hands-on exploration into learning the components, con
 
 ---
 
+### 11/11/2025
+
+- Moved js data analysis to a python app, which serves data through json response in django.
+- Learned how to navigate AWS tools, learning some Ubuntu to run my RestAPI through the terminal.
+- Focusing on learning proper repsonsive UI practices, so that the app looks proper on mobile resolutions.
+
+![image](https://github.com/user-attachments/assets/668c042d-8a02-4475-af6d-726fea10fe75)
+
+
+
+- 
 ## What I’m Learning
 - **React**: Components, state management, and building interactive UIs.
 - **Django**: Building API endpoints, controllers, and routing.
