@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from app.views import DaysItemView, mood_colors, DayDeleteView
+from app.views import DaysItemView, mood_colors, DayDeleteView, AggregatedDataView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
