@@ -1,6 +1,6 @@
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
-from analysis.sleep_analysis import analyze_sleep_data  # Correct import for your analysis function
+from analytics.sleep_analysis import analyze_sleep_data  # Adjust the import path
 
 from .models import Days, MoodColors
 from .serializers import DaysSerializer, MoodColorsSerializer
