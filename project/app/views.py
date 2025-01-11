@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from .models import Days, MoodColors
 from .serializers import DaysSerializer, MoodColorsSerializer
 from django.http import JsonResponse
+from rest_framework.views import APIView
 
 class AggregatedDataView(APIView):
     def get(self, request, *args, **kwargs):
