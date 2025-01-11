@@ -1,5 +1,6 @@
 from rest_framework import generics, viewsets
 from rest_framework.response import Response
+from analysis.sleep_analysis import analyze_sleep_data  # Correct import for your analysis function
 
 from .models import Days, MoodColors
 from .serializers import DaysSerializer, MoodColorsSerializer
@@ -8,14 +9,14 @@ from rest_framework.views import APIView
 
 class AggregatedDataView(APIView):
     def get(self, request, *args, **kwargs):
-        # Get data from the Days model
+        # Fetch data from the Days model
         days_queryset = Days.objects.all()
 
-        # Perform the analysis
+        # Perform the analysis using the analyze_sleep_data function
         analysis = analyze_sleep_data(days_queryset)
 
-        # Return the response as JSON
-        return JsonResponse(analysis, safe=False)  # Set safe=False for non-dict data
+        # Return the result as a JSON response
+        return JsonResponse(analysis)
 
         
 class DaysItemView(generics.ListCreateAPIView):
