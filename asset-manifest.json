@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Reflexa/home/static/css/main.fe50b2ef.css",
-    "main.js": "/Reflexa/home/static/js/main.3f58b709.js",
+    "main.css": "/Reflexa/home/static/css/main.2bc981bb.css",
+    "main.js": "/Reflexa/home/static/js/main.d0388281.js",
     "static/js/488.e75445ad.chunk.js": "/Reflexa/home/static/js/488.e75445ad.chunk.js",
     "static/media/InterVariable-Italic.woff2": "/Reflexa/home/static/media/InterVariable-Italic.e295f70fe3e2df296c7b.woff2",
     "static/media/InterVariable.woff2": "/Reflexa/home/static/media/InterVariable.a0e477f2f1f9d2376fde.woff2",
     "index.html": "/Reflexa/home/index.html",
-    "main.fe50b2ef.css.map": "/Reflexa/home/static/css/main.fe50b2ef.css.map",
-    "main.3f58b709.js.map": "/Reflexa/home/static/js/main.3f58b709.js.map",
+    "main.2bc981bb.css.map": "/Reflexa/home/static/css/main.2bc981bb.css.map",
+    "main.d0388281.js.map": "/Reflexa/home/static/js/main.d0388281.js.map",
     "488.e75445ad.chunk.js.map": "/Reflexa/home/static/js/488.e75445ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe50b2ef.css",
-    "static/js/main.3f58b709.js"
+    "static/css/main.2bc981bb.css",
+    "static/js/main.d0388281.js"
   ]
 }
