@@ -62,9 +62,6 @@ This project serves as my hands-on exploration into learning the components, con
 - Moved js data analysis to a python app, which serves data through json response in django.
 - Learned how to navigate AWS tools, learning some Ubuntu to run my RestAPI through the terminal.
 - Focusing on learning proper repsonsive UI practices, so that the app looks proper on mobile resolutions.
-
-![image](https://github.com/user-attachments/assets/668c042d-8a02-4475-af6d-726fea10fe75)
-
 ![image](https://github.com/user-attachments/assets/2e4654bb-09fb-4c3b-9637-c3ce0cb0e388)
 
 
