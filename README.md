@@ -64,9 +64,11 @@ This project serves as my hands-on exploration into learning the components, con
 - Focusing on learning proper repsonsive UI practices, so that the app looks proper on mobile resolutions.
 
 ![image](https://github.com/user-attachments/assets/668c042d-8a02-4475-af6d-726fea10fe75)
-![image](https://github.com/user-attachments/assets/1d782b34-cafa-4842-81f2-41e4c3a693a1)
 
-- This is starting to come together a little bit more, a lot of clean up is needed, but its starting to feel more like an app
+![image](https://github.com/user-attachments/assets/2e4654bb-09fb-4c3b-9637-c3ce0cb0e388)
+
+
+- This is starting to come together a little bit more, this app is sloppy, but I am learning how the development process SHOULD go.
 - I plan to add/learn more features until the app actually is useful, learning how to use tools and connect my ends
 - Then, I will include more fields in my data, and try to keep a consistent UI/UX style
 
