@@ -6,9 +6,7 @@ import { Typography } from '@mui/material';
 
 const Home = ({ details }) => (
   <div className="homepage">
-    {/* Weekly Insights Section on Top */}
     
-
     {/* Main Content (Left and Right Panels) */}
     <div className="main-content">
       {/* Left Panel: Recent Journal Entries */}

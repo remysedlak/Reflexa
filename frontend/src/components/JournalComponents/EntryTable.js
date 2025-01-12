@@ -1,14 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
-
-import "primereact/resources/themes/lara-light-cyan/theme.css";
-import "primereact/resources/primereact.min.css"; // Make sure this is imported as well
+import React, { useState, useEffect } from 'react';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 const EntryTable = () => {
-  const [metaKey,] = useState(true);
   const [daysData, setDaysData] = useState([]);
-  const [selectedDay, setSelectedDay] = useState(null);
 
   // Fetch data from the Django REST API
   useEffect(() => {
@@ -20,8 +14,8 @@ const EntryTable = () => {
         // Sort entries by date (latest first)
         const sortedData = data.sort((a, b) => new Date(b.entry_date) - new Date(a.entry_date));
 
-        // Limit to the 3-5 most recent entries (you can adjust the number here)
-        const recentEntries = sortedData.slice(0, 3); // Change 5 to 3 for fewer entries
+        // Limit to the 5 most recent entries
+        const recentEntries = sortedData.slice(0, 5); // Change 5 to 3 for fewer entries
 
         setDaysData(recentEntries);
       } catch (error) {
@@ -33,25 +27,26 @@ const EntryTable = () => {
   }, []);
 
   return (
-    <div className="entry-table-container">
-      {/* DataTable for Days Data */}
-      <DataTable
-        value={daysData}
-        selectionMode="single"
-        selection={selectedDay}
-        onSelectionChange={(e) => setSelectedDay(e.value)}
-        dataKey="entry_date"
-        metaKeySelection={metaKey}
-        scrollable={true} // Enable scroll when data overflows
-        style={{ width: '100%' }} // Make the DataTable responsive
-        scrollDirection="horizontal" // Enable horizontal scrolling if necessary
-        tableStyle={{ width: '100%', minWidth: '100%' }}
-      >
-        <Column field="entry_date" header="Date" style={{ minWidth: '150px' }} />
-        <Column field="entry_title" header="Title" style={{ minWidth: '200px' }} />
-        <Column field="hours_of_sleep" header="Sleep Hours" style={{ minWidth: '150px' }} />
-      </DataTable>
-    </div>
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Date</TableCell>
+            <TableCell>Content</TableCell>
+            <TableCell>Mood</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {daysData.map((day) => (
+            <TableRow key={day.id}>
+              <TableCell>{new Date(day.entry_date).toLocaleDateString()}</TableCell>
+              <TableCell>{day.entry_content}</TableCell>
+              <TableCell>{day.mood_color}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 

@@ -1,37 +1,19 @@
-import { React, useState, useEffect } from 'react';
-import { Box, Typography, Button } from '@mui/material';
-import BasicDatePicker from '../components/EntryForm/EntryDatePicker';
-import MultilineTextFields from '../components/EntryForm/EntryMultilineTextField';
-import BasicTextFields from '../components/EntryForm/EntryTextField';
-import SelectVariants from '../components/EntryForm/EntrySelectField';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Button, CircularProgress, TextField, Checkbox, FormControlLabel, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import Checkboxes from '../components/EntryForm/EntryCheckBox';
 import AxiosInstance from '../components/axios';
 import dayjs from 'dayjs';
 
 const Entry = () => {
+  const { register, handleSubmit, reset } = useForm();
   const [moodColors, setMoodColors] = useState([]);
-  const [loading, setLoading] = useState(true);  // to handle loading state
-  const defaultValues = {
-    entry_date: dayjs(), // Default to current date using Day.js
-    entry_content: '',
-    mood_color: "#808080",
-    proper_nutrition: false, // Default to false for checkbox
-    proper_hydration: false, // Default to false for checkbox
-    hydration_amount: '',
-    proper_exercise: false, // Default to false for checkbox
-    exercise_duration: '',
-    exercise_description: '',
-    hours_of_sleep: ''
-  };
-
-  const { handleSubmit, control } = useForm({ defaultValues });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch mood colors from API
-    AxiosInstance.get('/api/mood_colors/')
+    AxiosInstance.get('http://3.147.75.57:8000/api/mood-colors/')
       .then((response) => {
-        setMoodColors(response.data.mood_colors); // assuming the response has mood_colors
+        setMoodColors(response.data.mood_colors);
         setLoading(false);
       })
       .catch((error) => {
@@ -40,65 +22,111 @@ const Entry = () => {
       });
   }, []);
 
-  const submission = (data) => {
-    const formatted_date = data.entry_date.format("YYYY-MM-DD"); // Format date
+  const onSubmit = async (data) => {
+    const formatted_date = dayjs(data.entry_date).format("YYYY-MM-DD");
     const payload = {
       entry_date: formatted_date,
+      entry_title: data.entry_title || null,
       entry_content: data.entry_content || null,
       mood_color: data.mood_color || "#808080",
       proper_nutrition: data.proper_nutrition || false,
       proper_hydration: data.proper_hydration || false,
-      hydration_amount: data.hydration_amount ? parseFloat(data.hydration_amount) : null,
+      hydration_amount: data.hydration_amount || null,
       proper_exercise: data.proper_exercise || false,
-      exercise_duration: data.exercise_duration ? parseFloat(data.exercise_duration) : null,
+      exercise_duration: data.exercise_duration || null,
       exercise_description: data.exercise_description || null,
-      hours_of_sleep: data.hours_of_sleep ? parseFloat(data.hours_of_sleep) : null,
+      hours_of_sleep: data.hours_of_sleep || null,
     };
-  
-    AxiosInstance.post('/api/days/', payload)
-      .then(() => alert("Journal entry submitted successfully!"))
-      .catch((error) => {
-        console.error("Submission failed:", error);
-        alert("Submission failed. Please check your input.");
-      });
+
+    try {
+      await AxiosInstance.post('http://3.147.75.57:8000/api/days/', payload);
+      reset();
+    } catch (error) {
+      console.error('Error submitting entry:', error);
+    }
   };
-  
+
+  if (loading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
-    <div style={{ width: '100%', overflowX: 'hidden' }}>
-      <form onSubmit={handleSubmit(submission)}>
-        <Box sx={{ display: 'flex', width: '100%', marginBottom: '10px', marginTop: '10px', padding: '2px', alignItems: 'center' }}>
-          <Typography sx={{ marginLeft: '20px', color: '#000000', fontWeight: 'bold', fontSize: '1.5rem' }}>
-            Start a New Journal Entry
-          </Typography>
-        </Box>
-
-        <Box sx={{ display: 'flex', width: '100%', boxShadow: 3, padding: 4, flexDirection: 'column', boxSizing: 'border-box' }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-            <BasicDatePicker label="Entry Date" name="entry_date" control={control} /> {/* Handle entry_date as a Day.js object */}
-
-            <MultilineTextFields label="Entry Content" name="entry_content" control={control} placeholder="Write your journal entry" />
-
-            {/* Pass moodColors prop to SelectVariants */}
-            {!loading && <SelectVariants label="Mood Color" name="mood_color" control={control} moodColors={moodColors} />}
-
-            <Checkboxes name="proper_nutrition" control={control} label="Proper Nutrition" />
-            <Checkboxes name="proper_hydration" control={control} label="Proper Hydration" />
-            <Checkboxes name="proper_exercise" control={control} label="Proper Exercise" />
-
-            <BasicTextFields name="exercise_duration" control={control} label="Exercise Duration" />
-            <BasicTextFields name="exercise_description" control={control} label="Exercise Description" />
-            <BasicTextFields name="hours_of_sleep" control={control} label="Hours of Sleep" />
-          </Box>
-
-          <Box>
-            <Button variant="contained" type="submit" sx={{ width: '100%' }}>
+    <Box sx={{ p: 3, maxHeight: '100vh', overflowY: 'auto' }}>
+      <Typography variant="h5" gutterBottom>
+        New Entry
+      </Typography>
+      <Box sx={{ maxHeight: '80vh', overflowY: 'auto', p: 2, border: '1px solid #ccc', borderRadius: '8px' }}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <TextField
+              label="Entry Date"
+              type="date"
+              defaultValue={dayjs().format("YYYY-MM-DD")}
+              InputLabelProps={{ shrink: true }}
+              {...register("entry_date")}
+            />
+            <TextField
+              label="Entry Title"
+              {...register("entry_title")}
+            />
+            <TextField
+              label="Entry Content"
+              multiline
+              rows={4}
+              {...register("entry_content")}
+            />
+            <FormControl>
+              <InputLabel>Mood Color</InputLabel>
+              <Select
+                defaultValue="#808080"
+                {...register("mood_color")}
+              >
+                {moodColors.map((color) => (
+                  <MenuItem key={color.value} value={color.value}>
+                    {color.label}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox {...register("proper_nutrition")} />}
+              label="Proper Nutrition"
+            />
+            <FormControlLabel
+              control={<Checkbox {...register("proper_hydration")} />}
+              label="Proper Hydration"
+            />
+            <TextField
+              label="Hydration Amount"
+              {...register("hydration_amount")}
+            />
+            <FormControlLabel
+              control={<Checkbox {...register("proper_exercise")} />}
+              label="Proper Exercise"
+            />
+            <TextField
+              label="Exercise Duration"
+              {...register("exercise_duration")}
+            />
+            <TextField
+              label="Exercise Description"
+              {...register("exercise_description")}
+            />
+            <TextField
+              label="Hours of Sleep"
+              {...register("hours_of_sleep")}
+            />
+            <Button type="submit" variant="contained" color="primary">
               Submit
             </Button>
           </Box>
-        </Box>
-      </form>
-    </div>
+        </form>
+      </Box>
+    </Box>
   );
 };
 
