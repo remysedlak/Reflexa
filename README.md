@@ -12,7 +12,7 @@ This project serves as my hands-on exploration into learning the components, con
 ## Technologies Used
 
 - **Backend**: Django (Python)
-- **Frontend**: React (JavaScript)
+- **Frontend**: React & Material UI (JavaScript)
 - **Version Control**: Git & GitHub
 - **Database**: PostgreSQL & AWS RDS/EC2
 
