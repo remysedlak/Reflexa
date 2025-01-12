@@ -4,7 +4,7 @@
   top: 0;
   background: linear-gradient(135deg, #6a11cb, #2575fc); /* Smooth gradient background */
   color: white;
-  padding: 15px 30px;
+  padding: 10px 20px; /* Reduced padding to make the navbar less tall */
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -44,6 +44,12 @@
 .navbar-link {
   color: white;
   text-decoration: none;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition for hover effect */
+}
+
+.navbar-link:hover {
+  color: #ffeb3b; /* Change color on hover */
+  transform: scale(1.1); /* Slightly enlarge the link on hover */
 }
 
 @media (max-width: 768px) {
@@ -74,6 +80,7 @@
 
   .logo-text {
     font-size: 24px;
+    font-weight: 600;
   }
 }
 

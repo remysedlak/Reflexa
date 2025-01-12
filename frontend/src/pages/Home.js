@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/Home.css'; // Import a CSS file for styling
 import EntryTable from '../components/EntryTable.js';
 import CalendarTile from '../components/CalendarTile';
-import WeeklyInsights from '../components/insights/WeeklyInsights.js';
 import { Typography } from '@mui/material';
 
 const Home = ({ details }) => (
